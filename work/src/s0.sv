@@ -5,7 +5,6 @@ module s0(
 
 logic [31:0] temp;
 
-assign temp = {X[6:0],X[31:7]} ^ {X[17:0],X[31:18]};
-assign Y = temp ^ {3'b000, X[31 : 3]};
+assign Y = {X[6:0],X[31:7]} ^ {X[17:0],X[31:18]}^ {3'b000, X[31 : 3]};
 
 endmodule
