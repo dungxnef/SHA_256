@@ -1,3 +1,0 @@
-module sha_implementation(
-
-);
