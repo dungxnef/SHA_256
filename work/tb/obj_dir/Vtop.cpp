@@ -14,11 +14,11 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , clk_i{vlSymsp->TOP.clk_i}
     , rst_ni{vlSymsp->TOP.rst_ni}
     , stop{vlSymsp->TOP.stop}
+    , ready{vlSymsp->TOP.ready}
     , data_i{vlSymsp->TOP.data_i}
     , overflow{vlSymsp->TOP.overflow}
-    , padd_done{vlSymsp->TOP.padd_done}
-    , ready_o{vlSymsp->TOP.ready_o}
     , padded{vlSymsp->TOP.padded}
+    , rdy_o{vlSymsp->TOP.rdy_o}
     , result_o{vlSymsp->TOP.result_o}
     , rootp{&(vlSymsp->TOP)}
 {

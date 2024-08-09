@@ -28,11 +28,11 @@ class Vtop VL_NOT_FINAL : public VerilatedModel {
     VL_IN8(&clk_i,0,0);
     VL_IN8(&rst_ni,0,0);
     VL_IN8(&stop,0,0);
+    VL_IN8(&ready,0,0);
     VL_IN8(&data_i,7,0);
     VL_OUT8(&overflow,0,0);
-    VL_OUT8(&padd_done,0,0);
-    VL_OUT8(&ready_o,0,0);
     VL_OUT8(&padded,0,0);
+    VL_OUT8(&rdy_o,0,0);
     VL_OUTW(&result_o,255,0,8);
 
     // CELLS

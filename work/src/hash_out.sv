@@ -1,5 +1,5 @@
 module hash_out(
-	input logic clk, rst, sel,padded,
+	input logic clk, rst, sel,
 	input logic [31:0] w_i,
 	input logic [31:0] k_i,
 	
@@ -18,7 +18,7 @@ module hash_out(
 logic [31:0] a,b,c,d,e,f,g,h;
 logic [31:0] a_new, b_new, c_new, d_new, e_new, f_new, g_new, h_new;
 
-compress C0(
+compress compress(
  .k_i(k_i),
  .w_i(w_i),
  
@@ -54,7 +54,6 @@ always @(posedge clk) begin
 			end
 	else begin
 		if (sel) begin
-			if(padded) begin
 				a <= a_new;
 				b <= b_new;
 				c <= c_new;
@@ -64,12 +63,7 @@ always @(posedge clk) begin
 				g <= g_new;
 				h <= h_new;
 				end
-			else begin
-			// do nothing
-			end
-		end
 		else begin
-			if(padded) begin
 				a <= a;
 				b <= b;
 				c <= c;
@@ -79,10 +73,6 @@ always @(posedge clk) begin
 				g <= g;
 				h <= h;
 				end
-			else begin
-			//do nothing
-			end
-		end
 	end
 end
 

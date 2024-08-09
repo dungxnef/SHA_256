@@ -25,12 +25,12 @@ logic [31:0] ch, temp1, temp2, maj, t1, t2;
 
 S1 S1(
 	.X(e),
-	.Y(t1)
+	.us1(t1)
 );
 
 S0 S0(
 	.X(a),
-	.Y(t2)
+	.us0(t2)
 );
 	
 assign ch = (e & f) ^ ((~e) & g);

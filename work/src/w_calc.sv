@@ -8,22 +8,23 @@ module w_calc(
 
 );
 
-logic [31:0] temp1,temp2;
+logic [31:0] sigma0,sigma1;
 
 s0 s0(
  .X(w_15),
- .Y(temp1)
+ .Y(sigma0)
 );
 
 s1 s1(
  .X(w_2),
- .Y(temp2)
+ .Y(sigma1)
 );
-always_latch begin
-	if(w_rdy) begin
- 		w_o = temp1 + temp2 + w_16 + w_7;
- 	end
+
+always_comb begin
+	if(w_rdy) w_o = sigma1 + sigma0 + w_16 + w_7;
+ 	else
+ 	 w_o = 0;
+ 	 
 end
 endmodule
-
 

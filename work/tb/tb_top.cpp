@@ -14,13 +14,14 @@ vluint64_t sim_unit = 0;
 vluint64_t sim_time = 0;
 
 void dut_clock(Vtop *dut, VerilatedFstC *vtrace);
-//void set_random(Vtop *dut);
+void set_random(Vtop *dut);
 void get_expected(Vtop *dut);
 void monitor_proc(Vtop *dut);
 void monitor_outputs(Vtop *dut);
 
 void initial(Vtop *dut) {
 }
+
 
 void dut_clock(Vtop *dut, VerilatedFstC *vtrace) {
   sim_time = sim_unit * 10 + 1;
@@ -44,8 +45,8 @@ void dut_clock(Vtop *dut, VerilatedFstC *vtrace) {
   }
 }
 
-//void set_random(Vtop *dut) {
-//}
+void set_random(Vtop *dut) {
+}
 
 void get_expected(Vtop *dut) {
 }

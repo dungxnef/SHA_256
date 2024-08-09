@@ -1,7 +1,7 @@
 module sha256(
 	input logic [511:0] mess,
 	input logic clk,rst, padded_i,
-	output logic ready,
+	output logic rdy_o,
 	output logic [255:0] hash_val
 );
 
@@ -87,34 +87,85 @@ module sha256(
     logic [31:0] temp;
     logic [5:0] count, count16, count15, count7, count2;
     logic done;
-    logic w_done;
+    
+
     
     logic [31:0] w_o;
+    logic w_rdy;
+
     
+//    	integer i;
+//   	for(i =16; i<64; i++) begin
+//	    	w[i] = 32'b0;
+//	end
+	
     always @(*) begin
     	if (done == 1'b1) w_o = w[63];
     	else			  w_o = temp;
     end
-    
-    integer i;
+
+// MESS SCHELDULE
+
+// Assign input => W0 -> W15
     always @(posedge clk) begin
-    		if(padded_i) begin
-	    		for(i=15; i >= 0; i --)begin
-	    			w[-(i-15)] <= mess[32*i +: 32];
-	    		end
-	    		for(i =16; i<64; i++) begin
-	    			w[i] <= 32'b0;
-	    		end
-	    		w_done <= 1'b1;
+    		if(padded_i && !done ) begin
+//    		    integer i;
+//	    		for(i=15; i >= 0; i --)begin
+//	    			w[-(i-15)] <= mess[32*i +: 32];
+//	    		end
+//			for(i =16; i<64; i++) begin
+//	    			w[i] <= 32'b0;
+//	    		end
+	    
+			w[0] <= mess[511:480]; w[4] <= mess[383:352];
+			w[1] <= mess[479:448]; w[5] <= mess[351:320];
+			w[2] <= mess[447:416]; w[6] <= mess[319:288];
+			w[3] <= mess[415:384]; w[7] <= mess[287:256];
+			
+			
+			w[8] <= mess[255:224];  w[12] <= mess[127:96];
+			w[9] <= mess[223:192];  w[13] <= mess[95:64];
+			w[10] <= mess[191:160]; w[14] <= mess[63:32];
+			w[11] <= mess[159:128]; w[15] <= mess[31:0];
+			
+			//    	integer i;
+			//   	for(i =16; i<64; i++) begin
+			//	    	w[i] = 32'b0;
+			//	end
+			
+//			w[16] <= 32'b0; w[20] <= 32'b0; w[24] <= 32'b0; w[28] <= 32'b0;
+//			w[17] <= 32'b0; w[21] <= 32'b0; w[25] <= 32'b0; w[29] <= 32'b0;
+//			w[18] <= 32'b0; w[22] <= 32'b0; w[26] <= 32'b0; w[30] <= 32'b0;
+//			w[19] <= 32'b0; w[23] <= 32'b0; w[27] <= 32'b0; w[31] <= 32'b0;
+//			
+//			
+//			w[32] <= 32'b0; w[36] <= 32'b0; w[40] <= 32'b0; w[44] <= 32'b0;
+//			w[33] <= 32'b0; w[37] <= 32'b0; w[41] <= 32'b0; w[45] <= 32'b0;
+//			w[34] <= 32'b0; w[38] <= 32'b0; w[42] <= 32'b0; w[46] <= 32'b0;
+//			w[35] <= 32'b0; w[39] <= 32'b0; w[43] <= 32'b0; w[47] <= 32'b0;
+//			
+//			
+//			w[48] <= 32'b0; w[52] <= 32'b0; w[56] <= 32'b0; w[60] <= 32'b0;
+//			w[49] <= 32'b0; w[53] <= 32'b0; w[57] <= 32'b0; w[61] <= 32'b0;
+//			w[50] <= 32'b0; w[54] <= 32'b0; w[58] <= 32'b0; w[62] <= 32'b0;
+//			w[51] <= 32'b0; w[55] <= 32'b0; w[59] <= 32'b0; w[63] <= 32'b0;
+		
+	    		w_rdy <= 1'b1;
 	    	end
 	end
 	
+	
+// Affter W1 -> W15 assigned. Calculate W16 -> W63
+
+logic stop_w_calc;
+assign stop_w_calc = w_rdy && !done;
+
 	w_calc w_calc(
     	.w_16(w[count16]),
     	.w_15(w[count15]),
     	.w_7(w[count7]),
     	.w_2(w[count2]),
-    	.w_rdy(w_done),
+    	.w_rdy(stop_w_calc),
     	.w_o(temp)
     );
     
@@ -125,90 +176,137 @@ module sha256(
     		count7 <= 6'd9;
     		count2 <= 6'd14;
     		count <= 6'd16;
-		w_done <= 1'b0;
+		w_rdy <= 1'b0;
+		
+		w[16] <= 32'b0; w[20] <= 32'b0; w[24] <= 32'b0; w[28] <= 32'b0;
+		w[17] <= 32'b0; w[21] <= 32'b0; w[25] <= 32'b0; w[29] <= 32'b0;
+		w[18] <= 32'b0; w[22] <= 32'b0; w[26] <= 32'b0; w[30] <= 32'b0;
+		w[19] <= 32'b0; w[23] <= 32'b0; w[27] <= 32'b0; w[31] <= 32'b0;
+		
+		
+		w[32] <= 32'b0; w[36] <= 32'b0; w[40] <= 32'b0; w[44] <= 32'b0;
+		w[33] <= 32'b0; w[37] <= 32'b0; w[41] <= 32'b0; w[45] <= 32'b0;
+		w[34] <= 32'b0; w[38] <= 32'b0; w[42] <= 32'b0; w[46] <= 32'b0;
+		w[35] <= 32'b0; w[39] <= 32'b0; w[43] <= 32'b0; w[47] <= 32'b0;
+		
+		
+		w[48] <= 32'b0; w[52] <= 32'b0; w[56] <= 32'b0; w[60] <= 32'b0;
+		w[49] <= 32'b0; w[53] <= 32'b0; w[57] <= 32'b0; w[61] <= 32'b0;
+		w[50] <= 32'b0; w[54] <= 32'b0; w[58] <= 32'b0; w[62] <= 32'b0;
+		w[51] <= 32'b0; w[55] <= 32'b0; w[59] <= 32'b0; w[63] <= 32'b0;
+		
     	end
     	else begin
-    		if(w_done) begin
+    		if(w_rdy) begin				
 			count2    <= count2    + 1;
 		        count7    <= count7    + 1;
 		        count15   <= count15   + 1;
 		        count16   <= count16   + 1;
 		        w[count]  <= w_o;
-			if(count == 6'd63) begin count <= count;     done <= 1'b1; end
-		    	else               begin count <= count + 1; done <= 1'b0; end
-			end
-			else begin 
-			// do nothing
-			end
-        end
+				if(count == 6'd63) begin
+					count <= count ;
+					done <= 1'b1;
+				//	w_rdy <= 1'b0;
+				end
+		    		else begin
+		    			count <= count + 1; 
+		    			done <= 1'b0; 
+		 		end
+		end
+	end
      end
+     
+     
+   // After all 64 W is got. Using K and  
      
    logic [5:0] count_hash;
    reg reset_hash;
+   
    always@(posedge clk) reset_hash <= rst;
    
    always @(posedge clk) begin
    	if(!reset_hash )begin
-   		if(w_done) begin
-	   		count_hash <= 6'd0;
-	   		ready <= 1'b0;
-	   	end
-	   	else begin
-	   	//do nothing
-	   	end
+	   count_hash <= 6'd0;
+	   rdy_o <= 1'b0;
+	   w_value <= 32'b0;
+	   k_value <= k_value;
    	end
    	else begin
-   		if(w_done) begin
+   		if(done) begin
 	   		if(count_hash == 6'd63) begin 
-	   			count_hash <= count_hash; ready <= 1'b1; 
+	   			count_hash <= count_hash;
+	   			w_value <= w_value;
+		   		k_value <= k_value;
+	   			rdy_o <= 1'b1;
+	   			done <= 1'b0;
+	   			w_rdy <= 1'b0; 
 	   		end
-		    else begin 
-		    	count_hash <= count_hash + 1; ready <= 1'b0; 
-		    end
+		    	else begin 
+		    		count_hash <= count_hash + 1; 
+		    		rdy_o <= 1'b0; 
+		    	end
 		end
 		else begin
-		// do nothing
+			if(w_rdy) begin
+				if(count_hash == 6'd63) begin
+		   			count_hash <= count_hash;
+		   			w_value <= w_value;
+		   			k_value <= k_value;
+		   		end
+			    	else begin 
+			    		count_hash <= count_hash + 1; 
+			    	end
+			 end
+			 else begin
+				w_value <= mess[511:480];		 
+			 end
 		end
+
 	end
     end
     
-    logic select;
-    assign select = ~ready;
+//    logic select;
+//    assign select = ~rdy_o;
     
     logic [31:0] w_value, k_value;
-    
     always @(posedge clk) begin
         if(!reset_hash) begin
-        	if(w_done) begin
 		        w_value <= w[0];
 		        k_value <= k[0];
-		    end
-		    else begin
-		    // do nothing
-		    end
         end
         else begin
-        	if(w_done) begin
+        	if(done) begin
 		        if(count_hash <= 6'd62) begin
-		            w_value <= w[count_hash + 1];
+			    w_value <= w[count_hash + 1];
 		            k_value <= k[count_hash + 1];
 		        end
 		        else begin
 		            w_value <= 32'b0;
 		            k_value <= 32'b0;
 		        end
-		    end
-		    else begin
-		    //do nothing
-		    end
+		 end
+		 else begin
+		 	if(w_rdy) begin
+			   	if(count_hash <= 6'd62) begin
+				    w_value <= w[count_hash + 1];
+				    k_value <= k[count_hash + 1];
+				end
+				else begin
+				    w_value <= 32'b0;
+				    k_value <= 32'b0;
+				end
+			end	 
+		 end
         end
     end
+    
+    logic hash_cal;
+    assign hash_cal = w_rdy && !rdy_o ; 
     
      hash_out hash(
      	.clk(clk),
         .rst(reset_hash),
-        .sel(select),
-        .padded(padded_i),
+        .sel(hash_cal),
         .w_i(w_value),
         .k_i(k_value),
         .h0(h0),
