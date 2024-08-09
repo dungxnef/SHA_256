@@ -19,6 +19,7 @@ Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , overflow{vlSymsp->TOP.overflow}
     , padded{vlSymsp->TOP.padded}
     , rdy_o{vlSymsp->TOP.rdy_o}
+    , clk_cycle_o{vlSymsp->TOP.clk_cycle_o}
     , result_o{vlSymsp->TOP.result_o}
     , rootp{&(vlSymsp->TOP)}
 {

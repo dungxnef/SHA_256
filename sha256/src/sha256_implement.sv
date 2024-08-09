@@ -2,6 +2,7 @@ module sha256_implement(
 	input logic clk,rst,stop,ready,
 	input logic [7:0] data_in,
 	output logic overflow, input_padded, rdy_o,
+	output logic [6:0] clk_cycle,
 	output logic [255:0] hash_val
 );
 
@@ -28,7 +29,9 @@ sha256 core(
 	.padded_i(input_padded),
 	// output
 	.rdy_o(rdy_o),
+	.clk_cycle(clk_cycle),
 	.hash_val(hash_val)
 );
+
 
 endmodule

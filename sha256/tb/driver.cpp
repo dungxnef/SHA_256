@@ -12,7 +12,7 @@ typedef VlWide<8> VlWide8;  // Define VlWide with 8 words
 
 // Function to print the result
 void print_result_o(const VlWide8& result_o) {
-    std::cout << std::setw(23) << "Result from implementation: ";
+    std::cout << std::setw(23) << "\nResult from implementation: ";
     for (int i = 7; i >= 0; --i) {
         std::cout << std::hex << std::setw(8) << std::setfill('0') << result_o[i];
         if (i > 0) {
@@ -128,7 +128,7 @@ std::string calculate_sha256(const std::string& input) {
 
 void set_random(Vtop* dut, vluint64_t sim_unit) {
     // Static variables to hold the string, current index, and state
-    static std::string data = "Bach Khoa HCM Dien-Dien tu";
+    static std::string data = "BachKhoaHCM Dien-Dien tu";
     static size_t index = 0;
     static bool input_started = false;
     static bool delay_passed = false;
@@ -187,16 +187,22 @@ void set_random(Vtop* dut, vluint64_t sim_unit) {
 
     // Monitor the rdy_o signal and print "Done" along with result_o when it becomes 1
     if (dut->rdy_o == 1 && !result_printed) {
-        std::cout << "Done" << std::endl;
+    
+        std::cout << "\nStimulation Done\n\n";
+        
+        
         // Print the original string
-	std::cout << "Original String: " << data << std::endl;
-        // Print result_o as a 256-bit value in hexadecimal
+	std::cout << "Input String: " << data << std::endl;
+	
+	// Print Clock Cycles
+	std::cout << "Clock Cycles: " << static_cast<int>(dut->clk_cycle_o) << " cycles"<< std::endl;
+
+	
+        // Print SHA - 256 result_o as a 256-bit value in hexadecimal
         print_result_o(dut->result_o);
 
-        // Compute SHA-256 of the data string
+        // Compute and print SHA-256 of the data string using software
         std::string hash_value = calculate_sha256(data);
-
-        // Print the computed SHA-256 hash
         std::cout << "Result from software:       " << hash_value << std::endl;
 
         // Compare the two results
@@ -209,9 +215,9 @@ void set_random(Vtop* dut, vluint64_t sim_unit) {
         }
 
         if (result_o_ss.str() == hash_value) {
-            std::cout << "Got expected result" << std::endl;
+            std::cout << "\nGot expected result 😍️" << std::endl;
         } else {
-            std::cout << "Result mismatch" << std::endl;
+            std::cout << "\nResult mismatch 🥲️" << std::endl;
         }
 
         // Set flags to prevent re-printing

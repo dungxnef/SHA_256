@@ -33,6 +33,7 @@ class Vtop VL_NOT_FINAL : public VerilatedModel {
     VL_OUT8(&overflow,0,0);
     VL_OUT8(&padded,0,0);
     VL_OUT8(&rdy_o,0,0);
+    VL_OUT8(&clk_cycle_o,6,0);
     VL_OUTW(&result_o,255,0,8);
 
     // CELLS

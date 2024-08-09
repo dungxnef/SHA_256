@@ -2,6 +2,7 @@ module sha256(
 	input logic [511:0] mess,
 	input logic clk,rst, padded_i,
 	output logic rdy_o,
+	output logic [6:0] clk_cycle,
 	output logic [255:0] hash_val
 );
 
@@ -88,7 +89,7 @@ module sha256(
     logic [5:0] count, count16, count15, count7, count2;
     logic done;
     
-
+	
     
     logic [31:0] w_o;
     logic w_rdy;
@@ -103,6 +104,7 @@ module sha256(
     	if (done == 1'b1) w_o = w[63];
     	else			  w_o = temp;
     end
+    
 
 // MESS SCHELDULE
 
@@ -176,6 +178,7 @@ assign stop_w_calc = w_rdy && !done;
     		count7 <= 6'd9;
     		count2 <= 6'd14;
     		count <= 6'd16;
+    		
 		w_rdy <= 1'b0;
 		
 		w[16] <= 32'b0; w[20] <= 32'b0; w[24] <= 32'b0; w[28] <= 32'b0;
@@ -194,6 +197,7 @@ assign stop_w_calc = w_rdy && !done;
 		w[49] <= 32'b0; w[53] <= 32'b0; w[57] <= 32'b0; w[61] <= 32'b0;
 		w[50] <= 32'b0; w[54] <= 32'b0; w[58] <= 32'b0; w[62] <= 32'b0;
 		w[51] <= 32'b0; w[55] <= 32'b0; w[59] <= 32'b0; w[63] <= 32'b0;
+		
 		
     	end
     	else begin
@@ -219,22 +223,24 @@ assign stop_w_calc = w_rdy && !done;
      
    // After all 64 W is got. Using K and  
      
-   logic [5:0] count_hash;
+   logic [6:0] count_hash;
    reg reset_hash;
    
    always@(posedge clk) reset_hash <= rst;
    
    always @(posedge clk) begin
    	if(!reset_hash )begin
-	   count_hash <= 6'd0;
+	   count_hash <= 7'd0;
+	   clk_cycle <= 7'd0;
 	   rdy_o <= 1'b0;
 	   w_value <= 32'b0;
 	   k_value <= k_value;
    	end
    	else begin
    		if(done) begin
-	   		if(count_hash == 6'd63) begin 
+	   		if(count_hash == 7'd63) begin 
 	   			count_hash <= count_hash;
+	   			clk_cycle <= count_hash +7'd4;
 	   			w_value <= w_value;
 		   		k_value <= k_value;
 	   			rdy_o <= 1'b1;
@@ -248,7 +254,7 @@ assign stop_w_calc = w_rdy && !done;
 		end
 		else begin
 			if(w_rdy) begin
-				if(count_hash == 6'd63) begin
+				if(count_hash == 7'd63) begin
 		   			count_hash <= count_hash;
 		   			w_value <= w_value;
 		   			k_value <= k_value;
@@ -276,7 +282,7 @@ assign stop_w_calc = w_rdy && !done;
         end
         else begin
         	if(done) begin
-		        if(count_hash <= 6'd62) begin
+		        if(count_hash <= 7'd62) begin
 			    w_value <= w[count_hash + 1];
 		            k_value <= k[count_hash + 1];
 		        end
@@ -287,7 +293,7 @@ assign stop_w_calc = w_rdy && !done;
 		 end
 		 else begin
 		 	if(w_rdy) begin
-			   	if(count_hash <= 6'd62) begin
+			   	if(count_hash <= 7'd62) begin
 				    w_value <= w[count_hash + 1];
 				    k_value <= k[count_hash + 1];
 				end
@@ -317,7 +323,8 @@ assign stop_w_calc = w_rdy && !done;
         .h5(h5),
         .h6(h6),
         .h7(h7),
-        .hash_val(hash_val));
+        .hash_val(hash_val));  
+            
     
 endmodule
 

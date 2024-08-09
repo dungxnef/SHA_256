@@ -97,7 +97,7 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedFst::Buffe
         bufp->chgBit(oldp+24,(vlSelf->top__DOT__dut__DOT__core__DOT__w_rdy));
         bufp->chgBit(oldp+25,(((IData)(vlSelf->top__DOT__dut__DOT__core__DOT__w_rdy) 
                                & (~ (IData)(vlSelf->top__DOT__dut__DOT__core__DOT__done)))));
-        bufp->chgCData(oldp+26,(vlSelf->top__DOT__dut__DOT__core__DOT__count_hash),6);
+        bufp->chgCData(oldp+26,(vlSelf->top__DOT__dut__DOT__core__DOT__count_hash),7);
         bufp->chgBit(oldp+27,(vlSelf->top__DOT__dut__DOT__core__DOT__reset_hash));
         bufp->chgIData(oldp+28,(vlSelf->top__DOT__dut__DOT__core__DOT__w_value),32);
         bufp->chgIData(oldp+29,(vlSelf->top__DOT__dut__DOT__core__DOT__k_value),32);
@@ -229,7 +229,8 @@ void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedFst::Buffe
     bufp->chgBit(oldp+73,(vlSelf->overflow));
     bufp->chgBit(oldp+74,(vlSelf->padded));
     bufp->chgBit(oldp+75,(vlSelf->rdy_o));
-    bufp->chgWData(oldp+76,(vlSelf->result_o),256);
+    bufp->chgCData(oldp+76,(vlSelf->clk_cycle_o),7);
+    bufp->chgWData(oldp+77,(vlSelf->result_o),256);
 }
 
 void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedFst* /*unused*/) {

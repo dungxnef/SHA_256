@@ -1,22 +1,22 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Fri Aug  9 04:47:45 2024
+[*] Fri Aug  9 10:06:25 2024
 [*]
-[dumpfile] "/home/dungxnef/lab0/work/tb/wave.fst"
-[dumpfile_mtime] "Fri Aug  9 04:44:56 2024"
-[dumpfile_size] 16047
-[savefile] "/home/dungxnef/lab0/work/tb/wave.gtkw"
-[timestart] 812
+[dumpfile] "/home/dungxnef/lab0/sha256/tb/wave.fst"
+[dumpfile_mtime] "Fri Aug  9 10:03:55 2024"
+[dumpfile_size] 16095
+[savefile] "/home/dungxnef/lab0/sha256/tb/wave.gtkw"
+[timestart] 913
 [size] 1895 1042
-[pos] 12635 -19
-*-5.565606 972 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] 14108 193
+*-5.565606 1088 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.top.
 [treeopen] TOP.top.dut.
 [treeopen] TOP.top.dut.core.
 [treeopen] TOP.top.dut.core.hash.
 [sst_width] 276
-[signals_width] 174
+[signals_width] 190
 [sst_expanded] 1
 [sst_vpaned_height] 315
 @28
@@ -1308,14 +1308,15 @@ TOP.top.dut.core.w_calc.w_16[31:0]
 TOP.top.result_o[255:0]
 @200
 -
-@24
-TOP.top.dut.core.count_hash[5:0]
 @22
 TOP.top.dut.core.w_value[31:0]
 TOP.top.dut.core.k_value[31:0]
 @200
 -
 -
+@22
+TOP.top.dut.core.count_hash[6:0]
+@200
 -
 @28
 TOP.top.dut.core.rdy_o
@@ -1334,7 +1335,8 @@ TOP.top.dut.core.hash.h7_out[31:0]
 -
 @22
 TOP.top.dut.core.hash.hash_val[255:0]
-@23
 TOP.top.result_o[255:0]
+@25
+TOP.top.clk_cycle_o[6:0]
 [pattern_trace] 1
 [pattern_trace] 0

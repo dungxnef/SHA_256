@@ -6,6 +6,7 @@ module top (
 
   // outputs
   output logic  overflow,padded,rdy_o,
+  output logic [6:0] clk_cycle_o,
   output logic [255:0] result_o
 );
 
@@ -20,6 +21,7 @@ sha256_implement dut(
 	.overflow(overflow),
 	.input_padded(padded),
 	.rdy_o(rdy_o),
+	.clk_cycle(clk_cycle_o),
 	.hash_val(result_o)
 );
 

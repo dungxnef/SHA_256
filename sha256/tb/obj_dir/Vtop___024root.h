@@ -21,6 +21,7 @@ class Vtop___024root final : public VerilatedModule {
     VL_OUT8(overflow,0,0);
     VL_OUT8(padded,0,0);
     VL_OUT8(rdy_o,0,0);
+    VL_OUT8(clk_cycle_o,6,0);
     CData/*5:0*/ top__DOT__dut__DOT__input_processed__DOT__add_512_block;
     CData/*0:0*/ top__DOT__dut__DOT__input_processed__DOT__temp_chk;
     CData/*0:0*/ top__DOT__dut__DOT__input_processed__DOT__padd0s_done;
@@ -32,7 +33,7 @@ class Vtop___024root final : public VerilatedModule {
     CData/*5:0*/ top__DOT__dut__DOT__core__DOT__count2;
     CData/*0:0*/ top__DOT__dut__DOT__core__DOT__done;
     CData/*0:0*/ top__DOT__dut__DOT__core__DOT__w_rdy;
-    CData/*5:0*/ top__DOT__dut__DOT__core__DOT__count_hash;
+    CData/*6:0*/ top__DOT__dut__DOT__core__DOT__count_hash;
     CData/*0:0*/ top__DOT__dut__DOT__core__DOT__reset_hash;
     CData/*0:0*/ top__DOT__dut__DOT__core__DOT__hash_cal;
     CData/*0:0*/ __Vclklast__TOP__clk_i;
