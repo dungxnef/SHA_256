@@ -1,22 +1,22 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Fri Aug  9 10:06:25 2024
+[*] Mon Aug 12 02:10:00 2024
 [*]
 [dumpfile] "/home/dungxnef/lab0/sha256/tb/wave.fst"
-[dumpfile_mtime] "Fri Aug  9 10:03:55 2024"
-[dumpfile_size] 16095
+[dumpfile_mtime] "Mon Aug 12 02:09:10 2024"
+[dumpfile_size] 16099
 [savefile] "/home/dungxnef/lab0/sha256/tb/wave.gtkw"
-[timestart] 913
-[size] 1895 1042
-[pos] 14108 193
-*-5.565606 1088 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 825
+[size] 1895 1044
+[pos] 58200 874
+*-6.000000 1191 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.top.
 [treeopen] TOP.top.dut.
 [treeopen] TOP.top.dut.core.
 [treeopen] TOP.top.dut.core.hash.
 [sst_width] 276
-[signals_width] 190
+[signals_width] 220
 [sst_expanded] 1
 [sst_vpaned_height] 315
 @28
@@ -1106,8 +1106,6 @@ TOP.top.dut.core.mess[511:0]
 (511)TOP.top.dut.core.mess[511:0]
 @1401200
 -group_end
-@28
-TOP.top.dut.input_processed.temp_chk
 @24
 TOP.top.dut.input_processed.m_size[63:0]
 @28
@@ -1172,7 +1170,7 @@ TOP.top.dut.core.w_calc.w_o[31:0]
 -group_end
 @200
 -
-@c00028
+@c00022
 [color] 1
 TOP.top.dut.core.w_calc.sigma1[31:0]
 @28
@@ -1251,23 +1249,23 @@ TOP.top.dut.core.w_calc.sigma1[31:0]
 (31)TOP.top.dut.core.w_calc.sigma1[31:0]
 @1401200
 -group_end
-@28
+@22
 [color] 1
 TOP.top.dut.core.w_calc.w_2[31:0]
 @200
 -
-@28
+@22
 TOP.top.dut.core.w_calc.w_7[31:0]
 @200
 -
-@28
+@22
 [color] 2
 TOP.top.dut.core.w_calc.sigma0[31:0]
 [color] 2
 TOP.top.dut.core.w_calc.w_15[31:0]
 @200
 -
-@c00028
+@c00022
 TOP.top.dut.core.w_calc.w_16[31:0]
 @28
 (0)TOP.top.dut.core.w_calc.w_16[31:0]
@@ -1304,22 +1302,41 @@ TOP.top.dut.core.w_calc.w_16[31:0]
 (31)TOP.top.dut.core.w_calc.w_16[31:0]
 @1401200
 -group_end
-@22
-TOP.top.result_o[255:0]
 @200
 -
+@24
+TOP.top.dut.core.count_hash[6:0]
 @22
 TOP.top.dut.core.w_value[31:0]
 TOP.top.dut.core.k_value[31:0]
 @200
 -
 -
-@22
-TOP.top.dut.core.count_hash[6:0]
-@200
 -
 @28
 TOP.top.dut.core.rdy_o
+@200
+-
+@22
+TOP.top.dut.core.hash.a[31:0]
+TOP.top.dut.core.hash.b[31:0]
+TOP.top.dut.core.hash.c[31:0]
+TOP.top.dut.core.hash.d[31:0]
+TOP.top.dut.core.hash.e[31:0]
+TOP.top.dut.core.hash.f[31:0]
+TOP.top.dut.core.hash.g[31:0]
+TOP.top.dut.core.hash.h[31:0]
+@200
+-
+@22
+TOP.top.dut.core.hash.a_new[31:0]
+TOP.top.dut.core.hash.b_new[31:0]
+TOP.top.dut.core.hash.c_new[31:0]
+TOP.top.dut.core.hash.d_new[31:0]
+TOP.top.dut.core.hash.e_new[31:0]
+TOP.top.dut.core.hash.f_new[31:0]
+TOP.top.dut.core.hash.g_new[31:0]
+TOP.top.dut.core.hash.h_new[31:0]
 @200
 -
 @22
@@ -1336,7 +1353,9 @@ TOP.top.dut.core.hash.h7_out[31:0]
 @22
 TOP.top.dut.core.hash.hash_val[255:0]
 TOP.top.result_o[255:0]
-@25
+@24
 TOP.top.clk_cycle_o[6:0]
+@23
+TOP.top.dut.clk_cycle[6:0]
 [pattern_trace] 1
 [pattern_trace] 0

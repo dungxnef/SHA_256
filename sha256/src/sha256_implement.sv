@@ -29,9 +29,17 @@ sha256 core(
 	.padded_i(input_padded),
 	// output
 	.rdy_o(rdy_o),
-	.clk_cycle(clk_cycle),
 	.hash_val(hash_val)
 );
 
+ always@(posedge clk) begin
+ 	if(stop && !rdy_o) begin
+ 		clk_cycle <= clk_cycle + 7'd1;
+ 	end
+ 	else begin
+ 		clk_cycle <= clk_cycle;
+ 	end
+ 
+ end
 
 endmodule

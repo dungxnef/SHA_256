@@ -20,6 +20,7 @@ always_comb begin
 	else addr63 = 1'b0;
 end
 
+
 always@(posedge clk)begin
 	if(!rst) begin
 		add_512_block <= 6'd0;
@@ -35,6 +36,7 @@ always@(posedge clk)begin
 			block_512[add_512_block]<=data_in;
 			add_512_block<=add_512_block+1;
 				if(stop)begin
+				  if(add_512_block < 58) begin 
 					if(temp_chk==0)begin
 						padd0s_done<=1'b0;
 						m_size[63:0]<=(add_512_block)*8;		// calculate input length
@@ -314,6 +316,10 @@ always@(posedge clk)begin
 				padded_i <= 1'b1;
 						end
 					end
+				  end // if add_512_block < 55
+				  else begin
+				  	overflow<=1'b1;
+				  end
 				end // if stop
 				else begin
 					if(add_512_block==55)begin // if !stop and add_512_block = 55
