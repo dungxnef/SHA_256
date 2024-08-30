@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Mon Aug 12 02:10:00 2024
+[*] Wed Aug 28 13:14:11 2024
 [*]
 [dumpfile] "/home/dungxnef/lab0/sha256/tb/wave.fst"
-[dumpfile_mtime] "Mon Aug 12 02:09:10 2024"
-[dumpfile_size] 16099
+[dumpfile_mtime] "Wed Aug 28 13:13:25 2024"
+[dumpfile_size] 16348
 [savefile] "/home/dungxnef/lab0/sha256/tb/wave.gtkw"
-[timestart] 825
-[size] 1895 1044
-[pos] 58200 874
-*-6.000000 1191 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 1103
+[size] 1895 1043
+[pos] 58204 718
+*-6.000000 1349 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.top.
 [treeopen] TOP.top.dut.
@@ -1318,24 +1318,6 @@ TOP.top.dut.core.rdy_o
 @200
 -
 @22
-TOP.top.dut.core.hash.a[31:0]
-TOP.top.dut.core.hash.b[31:0]
-TOP.top.dut.core.hash.c[31:0]
-TOP.top.dut.core.hash.d[31:0]
-TOP.top.dut.core.hash.e[31:0]
-TOP.top.dut.core.hash.f[31:0]
-TOP.top.dut.core.hash.g[31:0]
-TOP.top.dut.core.hash.h[31:0]
-@200
--
-@22
-TOP.top.dut.core.hash.a_new[31:0]
-TOP.top.dut.core.hash.b_new[31:0]
-TOP.top.dut.core.hash.c_new[31:0]
-TOP.top.dut.core.hash.d_new[31:0]
-TOP.top.dut.core.hash.e_new[31:0]
-TOP.top.dut.core.hash.f_new[31:0]
-TOP.top.dut.core.hash.g_new[31:0]
 TOP.top.dut.core.hash.h_new[31:0]
 @200
 -
@@ -1355,7 +1337,5 @@ TOP.top.dut.core.hash.hash_val[255:0]
 TOP.top.result_o[255:0]
 @24
 TOP.top.clk_cycle_o[6:0]
-@23
-TOP.top.dut.clk_cycle[6:0]
 [pattern_trace] 1
 [pattern_trace] 0

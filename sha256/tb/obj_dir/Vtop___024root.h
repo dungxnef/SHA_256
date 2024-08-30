@@ -26,15 +26,14 @@ class Vtop___024root final : public VerilatedModule {
     CData/*0:0*/ top__DOT__dut__DOT__input_processed__DOT__temp_chk;
     CData/*0:0*/ top__DOT__dut__DOT__input_processed__DOT__padd0s_done;
     CData/*0:0*/ top__DOT__dut__DOT__input_processed__DOT__addr63;
+    CData/*0:0*/ top__DOT__dut__DOT__core__DOT__done;
+    CData/*0:0*/ top__DOT__dut__DOT__core__DOT__w_rdy;
     CData/*5:0*/ top__DOT__dut__DOT__core__DOT__count;
     CData/*5:0*/ top__DOT__dut__DOT__core__DOT__count16;
     CData/*5:0*/ top__DOT__dut__DOT__core__DOT__count15;
     CData/*5:0*/ top__DOT__dut__DOT__core__DOT__count7;
     CData/*5:0*/ top__DOT__dut__DOT__core__DOT__count2;
-    CData/*0:0*/ top__DOT__dut__DOT__core__DOT__done;
-    CData/*0:0*/ top__DOT__dut__DOT__core__DOT__w_rdy;
     CData/*6:0*/ top__DOT__dut__DOT__core__DOT__count_hash;
-    CData/*0:0*/ top__DOT__dut__DOT__core__DOT__reset_hash;
     CData/*0:0*/ top__DOT__dut__DOT__core__DOT__hash_cal;
     CData/*0:0*/ __Vclklast__TOP__clk_i;
     VL_OUTW(result_o,255,0,8);

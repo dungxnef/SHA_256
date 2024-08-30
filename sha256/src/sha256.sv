@@ -194,12 +194,9 @@ logic [31:0] w_o;
      
    logic [6:0] count_hash;
    logic [31:0] w_value, k_value;
-   reg reset_hash;
-   
-   always@(posedge clk) reset_hash <= rst;
    
    always @(posedge clk) begin
-   	if(!reset_hash )begin
+   	if(!rst )begin
 	   count_hash <= 7'd0;
 	   
 	   rdy_o <= 1'b0;
@@ -256,7 +253,7 @@ logic [31:0] w_o;
     
      hash_out hash(
      	.clk(clk),
-        .rst(reset_hash),
+        .rst(rst),
         .sel(hash_cal),
         .w_i(w_value),
         .k_i(k_value),
