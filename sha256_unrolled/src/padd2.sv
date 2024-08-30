@@ -1,8 +1,8 @@
-module padd(
+module padd_1(
 	input logic clk,rst,stop,ready,
 	input logic [7:0] data_in,
-	output logic overflow,padded_i,
-	output logic [511:0] padd_out
+	output logic padded_i_1,
+	output logic [511:0] padd_out_1
 ); 
 
 logic [7:0] block_512 [63:0]; //8bit word * 64 add = 512
@@ -26,13 +26,13 @@ always@(posedge clk)begin
 		add_512_block <= 6'd0;
 		m_size <= 64'd0;
 		padd0s_done <= 1'b0;
-		padded_i <=1'b0;
+		padded_i_1 <=1'b0;
 		padd_out <= 512'd0;
 		overflow <= 1'b0;
 		temp_chk <= 1'b0;
 	end
 	else begin
-		if(ready && !addr63 )begin
+		if(ready && !addr63)begin
 			block_512[add_512_block]<=data_in;
 			add_512_block<=add_512_block+1;
 				if(stop)begin

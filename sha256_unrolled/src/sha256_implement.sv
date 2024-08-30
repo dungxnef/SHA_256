@@ -33,13 +33,17 @@ sha256 core(
 );
 
  always@(posedge clk) begin
- 	if(stop && !rdy_o) begin
- 		clk_cycle <= clk_cycle + 7'd1;
+ 	if(!rst) begin
+ 		clk_cycle <= 7'd0;
  	end
  	else begin
- 		clk_cycle <= clk_cycle;
- 	end
- 
+	 	if(stop && !rdy_o) begin
+	 		clk_cycle <= clk_cycle + 7'd1;
+	 	end
+	 	else begin
+	 		clk_cycle <= clk_cycle;
+	 	end
+	end
  end
 
 

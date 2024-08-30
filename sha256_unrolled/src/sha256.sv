@@ -225,7 +225,7 @@ end
    // After all 64 W is got. Using K and W to calculate H    
    logic [6:0] count_hash1, count_hash2;
    logic [31:0] w_value1, k_value1, w_value2, k_value2;
-   reg reset_hash;
+   logic reset_hash;
    
    always@(posedge clk) reset_hash <= rst;
    
@@ -264,8 +264,8 @@ end
 		    		w_value1 <= w[count_hash1 + 2];
 			        w_value2 <= w[count_hash2 + 2];
 			        
-				    k_value1 <= k[count_hash1 + 2];
-				    k_value2 <= k[count_hash2 + 2];
+				k_value1 <= k[count_hash1 + 2];
+				k_value2 <= k[count_hash2 + 2];
 		                
 		    		rdy_o <= 1'b0; 
 		    	end

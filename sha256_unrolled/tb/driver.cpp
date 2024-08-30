@@ -7,6 +7,7 @@
 #include <array>
 #include <bitset>
 #include <random>
+#include <x86intrin.h> // For __rdtsc()
 
 #define MAX_SIM 200
 #define DELAY_BEFORE_INPUT 10 
@@ -234,9 +235,9 @@ void print_result_o(const VlWide8& result_o) {
 }
 
 void set_random(Vtop* dut, vluint64_t sim_unit) {
-    static std::string data = generate_random_string();		//	 Generate random string with random length from 0 to 55
+ //   static std::string data = generate_random_string();		//	 Generate random string with random length from 0 to 55
 //	static std::string data = generate_random_string_n_length(55); 	// Generate random string with n length . Can choose n from 0 to 55
-// 	static std::string data = "abc";			// Set specific string for input
+ 	static std::string data = "abc";			// Set specific string for input
 
     static size_t index = 0;
     static bool input_started = false;
@@ -276,9 +277,11 @@ void set_random(Vtop* dut, vluint64_t sim_unit) {
             } else {
                 // Set stop to 1 at the end of the input and if the last input was valid
                 dut->data_i = 0;
-                // Only set stop = 1 if the last character was valid and not a space
-                if (index > 0 && static_cast<uint8_t>(data[index - 1]) != 32) {  // ASCII value 32 is for a space
-                    dut->stop = 1;
+                // Check if the first input is valid and set stop accordingly
+                if (index == 0 || static_cast<uint8_t>(data[0]) == 0) {
+                    dut->stop = 0; // Invalid first input, set stop to 0
+                } else if (index > 0 && static_cast<uint8_t>(data[index - 1]) != 0) {
+                    dut->stop = 1;//Valid input, set stop to 1 at the end
                 } else {
                     dut->stop = 0;
                 }
@@ -366,11 +369,16 @@ void set_random(Vtop* dut, vluint64_t sim_unit) {
 		std::cout << "----------------\n\n";
 
 		// Compute and print SHA-256 of the data string using software
+		// Measure start time
+    		unsigned long long start = __rdtsc();
 		std::string hash_value = calculate_sha256(data);
+		 // Measure end time
+   		 unsigned long long end = __rdtsc();
 		// Print SHA - 256 result_o as a 256-bit value in hexadecimal
 		
 		// Print Clock Cycles
 		std::cout << "\nClock Cycles: " << std::dec << static_cast<int>(dut->clk_cycle_o) << " cycles" << std::endl;
+//		std::cout << "\nClock cycles: " << (end - start) << std::endl;
 
 		print_result_o(dut->result_o);
 		std::cout << "Result from software:       " << hash_value << std::endl;
@@ -392,7 +400,8 @@ void set_random(Vtop* dut, vluint64_t sim_unit) {
 
 		// Set flags to prevent re-printing
 		result_printed = true;
-//	    dut->rst_ni = 0;  // Set rst_ni to 0 when rdy_o is 1
+	    	dut->rst_ni = 0;  // Set rst_ni to 0 when rdy_o is 1
 		dut->ready = 0;   // Ensure ready is 0 when rst_ni is 0
+		dut->stop = 0;  // Set rst_ni to 0 when rdy_o is 1
 	}
 }
