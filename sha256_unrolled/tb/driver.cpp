@@ -236,8 +236,8 @@ void print_result_o(const VlWide8& result_o) {
 
 void set_random(Vtop* dut, vluint64_t sim_unit) {
  //   static std::string data = generate_random_string();		//	 Generate random string with random length from 0 to 55
-//	static std::string data = generate_random_string_n_length(55); 	// Generate random string with n length . Can choose n from 0 to 55
- 	static std::string data = "abc";			// Set specific string for input
+	static std::string data = generate_random_string_n_length(55); 	// Generate random string with n length . Can choose n from 0 to 55
+// 	static std::string data = "abc";			// Set specific string for input
 
     static size_t index = 0;
     static bool input_started = false;
