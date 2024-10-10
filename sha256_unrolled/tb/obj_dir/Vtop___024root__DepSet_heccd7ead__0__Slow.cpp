@@ -130,6 +130,24 @@ VL_ATTR_COLD void Vtop___024root___settle__TOP__0(Vtop___024root* vlSelf) {
     vlSelf->top__DOT__dut__DOT__core__DOT__stop_w_calc 
         = ((IData)(vlSelf->top__DOT__dut__DOT__core__DOT__w_rdy) 
            & (~ (IData)(vlSelf->top__DOT__dut__DOT__core__DOT__done)));
+    if (vlSelf->rdy_o) {
+        vlSelf->top__DOT__dut__DOT__hash_val_disp[0U] 
+            = vlSelf->result_o[0U];
+        vlSelf->top__DOT__dut__DOT__hash_val_disp[1U] 
+            = vlSelf->result_o[1U];
+        vlSelf->top__DOT__dut__DOT__hash_val_disp[2U] 
+            = vlSelf->result_o[2U];
+        vlSelf->top__DOT__dut__DOT__hash_val_disp[3U] 
+            = vlSelf->result_o[3U];
+        vlSelf->top__DOT__dut__DOT__hash_val_disp[4U] 
+            = vlSelf->result_o[4U];
+        vlSelf->top__DOT__dut__DOT__hash_val_disp[5U] 
+            = vlSelf->result_o[5U];
+        vlSelf->top__DOT__dut__DOT__hash_val_disp[6U] 
+            = vlSelf->result_o[6U];
+        vlSelf->top__DOT__dut__DOT__hash_val_disp[7U] 
+            = vlSelf->result_o[7U];
+    }
     vlSelf->top__DOT__dut__DOT__core__DOT__hash__DOT__p2 
         = (vlSelf->top__DOT__dut__DOT__core__DOT__hash__DOT__compress1__DOT__t4 
            + ((vlSelf->top__DOT__dut__DOT__core__DOT__hash__DOT__h 
@@ -275,6 +293,7 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->clk_cycle_o = VL_RAND_RESET_I(7);
     VL_RAND_RESET_W(256, vlSelf->result_o);
     VL_RAND_RESET_W(512, vlSelf->top__DOT__dut__DOT__padded_input);
+    VL_RAND_RESET_W(256, vlSelf->top__DOT__dut__DOT__hash_val_disp);
     for (int __Vi0=0; __Vi0<64; ++__Vi0) {
         vlSelf->top__DOT__dut__DOT__input_processed__DOT__block_512[__Vi0] = VL_RAND_RESET_I(8);
     }

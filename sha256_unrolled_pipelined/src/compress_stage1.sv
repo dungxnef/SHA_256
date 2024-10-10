@@ -62,5 +62,6 @@ assign p2 = t4 + t6;         //3 addition stages
 
 assign p1 = us0 + maj;        //1 addition stage
     
+    
 endmodule
 

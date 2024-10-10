@@ -26,7 +26,7 @@ always@(posedge clk)begin
 		add_512_block <= 6'd0;
 		m_size <= 64'd0;
 		padd0s_done <= 1'b0;
-		padded_i <=1'b0;
+		padded_i <= 1'b0;
 		padd_out <= 512'd0;
 		overflow <= 1'b0;
 		temp_chk <= 1'b0;

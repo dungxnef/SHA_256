@@ -237,7 +237,9 @@ void set_random(Vtop* dut, vluint64_t sim_unit) {
                     dut->ready = 1;
                 }
                 // Ensure stop is 0 while processing input characters
-                dut->stop = 0;
+                if (data[0] == '\0') {
+                 dut->stop = 0; // Blank input, set stop to 0
+                }
             } else {
                 // Set stop to 1 at the end of the input and if the last input was valid
                 dut->data_i = 0;
@@ -269,8 +271,8 @@ void set_random(Vtop* dut, vluint64_t sim_unit) {
             result_stream << std::hex << std::setw(8) << std::setfill('0') << dut->result_o[i];
         }
         std::string result_str = result_stream.str();
-        if (result_str.find("0000") == 0) {
-            std::cout << "Simulation stopped due to leading '0000' in result." << std::endl;
+        if (result_str.find("000") == 0) {
+            std::cout << "Simulation stopped due to leading '000' in result." << std::endl;
             std::exit(0);  // Stop the simulation
         }
 

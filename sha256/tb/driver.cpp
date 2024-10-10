@@ -9,7 +9,7 @@
 #include <random>
 
 #define MAX_SIM 200
-#define DELAY_BEFORE_INPUT 10 
+#define DELAY_BEFORE_INPUT 10
 
 
 /////////////////////////////////////////////////
@@ -19,7 +19,7 @@
 //  ___) |  _  |/ ___ \_____/ __/ ___) | (_) | //
 // |____/|_| |_/_/   \_\   |_____|____/ \___/  //
 // 											   //
-/////////////////////////////////////////////////                                            
+/////////////////////////////////////////////////                                          5  
 
 
 constexpr uint32_t rotate_right(uint32_t value, unsigned int shift) {
@@ -52,13 +52,15 @@ void sha256_transform(uint32_t state[8], const unsigned char data[64]) {
     for (int i = 0; i < 16; ++i) {
         W[i] = (data[i * 4] << 24) | (data[i * 4 + 1] << 16) | (data[i * 4 + 2] << 8) | (data[i * 4 + 3]);
     }
-    
+
 	// Calculate W[16] to W[63] from first 16 words (W[0] to W[15])
     for (int i = 16; i < 64; ++i) {
         uint32_t s0 = rotate_right(W[i - 15], 7) ^ rotate_right(W[i - 15], 18) ^ (W[i - 15] >> 3);
         uint32_t s1 = rotate_right(W[i - 2], 17) ^ rotate_right(W[i - 2], 19) ^ (W[i - 2] >> 10);
         W[i] = W[i - 16] + s0 + W[i - 7] + s1;
     }
+
+    
     
 ///////////////////////////////////////////////////////////////////////////////////////////    
 //  ____  _            _       ____                                        _             //
@@ -235,14 +237,14 @@ void print_result_o(const VlWide8& result_o) {
 
 void set_random(Vtop* dut, vluint64_t sim_unit) {
     static std::string data = generate_random_string();		//	 Generate random string with random length from 0 to 55
-//	static std::string data = generate_random_string_n_length(55); 	// Generate random string with n length . Can choose n from 0 to 55
-// 	static std::string data = "abc";			// Set specific string for input
+	// static std::string data = generate_random_string_n_length(55); 	// Generate random string with n length . Can choose n from 0 to 55
+ 	// static std::string data = "abc";			// Set specific string for input
 
     static size_t index = 0;
     static bool input_started = false;
     static bool delay_passed = false;
     static bool result_printed = false;  // Flag to track if result has been printed
-
+ 
     // Control signals and delay management
     if (sim_unit < 5) {
         dut->rst_ni = 0;

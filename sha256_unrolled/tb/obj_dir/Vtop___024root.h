@@ -46,6 +46,7 @@ class Vtop___024root final : public VerilatedModule {
     CData/*0:0*/ __Vclklast__TOP__clk_i;
     VL_OUTW(result_o,255,0,8);
     VlWide<16>/*511:0*/ top__DOT__dut__DOT__padded_input;
+    VlWide<8>/*255:0*/ top__DOT__dut__DOT__hash_val_disp;
     IData/*31:0*/ top__DOT__dut__DOT__core__DOT__w_o1;
     IData/*31:0*/ top__DOT__dut__DOT__core__DOT__w_o2;
     IData/*31:0*/ top__DOT__dut__DOT__core__DOT____Vcellinp__w_calc1__w_2;

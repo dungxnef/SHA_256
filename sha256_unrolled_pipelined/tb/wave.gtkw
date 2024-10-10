@@ -1,24 +1,26 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Fri Aug 30 09:14:17 2024
+[*] Mon Sep 16 11:19:19 2024
 [*]
-[dumpfile] "/home/dungxnef/lab0/sha256_unrolled_pipelined/tb/wave.fst"
-[dumpfile_mtime] "Fri Aug 30 08:59:48 2024"
+[dumpfile] "/home/dungxnef/SHA_256/sha256_unrolled_pipelined/tb/wave.fst"
+[dumpfile_mtime] "Mon Sep 16 10:54:25 2024"
 [dumpfile_size] 15445
-[savefile] "/home/dungxnef/lab0/sha256_unrolled_pipelined/tb/wave.gtkw"
+[savefile] "/home/dungxnef/SHA_256/sha256_unrolled_pipelined/tb/wave.gtkw"
 [timestart] 166
-[size] 1582 1024
-[pos] 80292 757
-*-4.800000 209 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1267 1024
+[pos] 86750 858
+*-4.500000 184 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.top.
 [treeopen] TOP.top.dut.
 [treeopen] TOP.top.dut.core.
 [treeopen] TOP.top.dut.core.hash.
+[treeopen] TOP.top.dut.core.hash.compress1.
+[treeopen] TOP.top.dut.core.hash.compress2.
 [sst_width] 276
-[signals_width] 262
+[signals_width] 174
 [sst_expanded] 1
-[sst_vpaned_height] 308
+[sst_vpaned_height] 307
 @28
 TOP.clk_i
 TOP.rst_ni
@@ -1143,6 +1145,16 @@ TOP.top.dut.core.k_value2[31:0]
 TOP.top.dut.core.rdy_o
 @200
 -
+@22
+TOP.top.dut.core.hash.compress1.w_i1[31:0]
+TOP.top.dut.core.hash.compress1.k_i1[31:0]
+@200
+-
+@22
+TOP.top.dut.core.hash.compress1.w_i2[31:0]
+TOP.top.dut.core.hash.compress1.k_i2[31:0]
+@200
+-
 -
 @22
 TOP.top.dut.core.hash.compress1.a[31:0]
@@ -1162,16 +1174,38 @@ TOP.top.dut.core.hash.compress1.e_dash[31:0]
 TOP.top.dut.core.hash.compress1.f_dash[31:0]
 @200
 -
+@22
+TOP.top.dut.core.hash.p1[31:0]
+TOP.top.dut.core.hash.p2[31:0]
+TOP.top.dut.core.hash.p3[31:0]
+TOP.top.dut.core.hash.p4[31:0]
+TOP.top.dut.core.hash.p5[31:0]
+@200
 -
 @22
+TOP.top.dut.core.hash.a_cap[31:0]
+TOP.top.dut.core.hash.b_cap[31:0]
+TOP.top.dut.core.hash.e_cap[31:0]
+TOP.top.dut.core.hash.f_cap[31:0]
+@200
+-
+@22
+TOP.top.dut.core.hash.p1_cap[31:0]
+TOP.top.dut.core.hash.p2_cap[31:0]
+TOP.top.dut.core.hash.p3_cap[31:0]
+TOP.top.dut.core.hash.p4_cap[31:0]
+TOP.top.dut.core.hash.p5_cap[31:0]
+@200
+-
+@23
 TOP.top.dut.core.hash.compress2.a_new[31:0]
+@22
 TOP.top.dut.core.hash.compress2.b_new[31:0]
 TOP.top.dut.core.hash.compress2.c_new[31:0]
 TOP.top.dut.core.hash.compress2.d_new[31:0]
 TOP.top.dut.core.hash.compress2.e_new[31:0]
 TOP.top.dut.core.hash.compress2.f_new[31:0]
 TOP.top.dut.core.hash.compress2.g_new[31:0]
-@23
 TOP.top.dut.core.hash.compress2.h_new[31:0]
 [pattern_trace] 1
 [pattern_trace] 0

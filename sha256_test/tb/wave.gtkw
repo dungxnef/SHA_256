@@ -1,21 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Wed Aug 14 08:34:14 2024
+[*] Tue Sep 24 08:43:25 2024
 [*]
-[dumpfile] "/home/dungxnef/lab0/sha256_test/tb/wave.fst"
-[dumpfile_mtime] "Wed Aug 14 08:29:31 2024"
-[dumpfile_size] 29667960
-[savefile] "/home/dungxnef/lab0/sha256_test/tb/wave.gtkw"
-[timestart] 2042
+[dumpfile] "/home/dungxnef/SHA_256/sha256_test/tb/wave.fst"
+[dumpfile_mtime] "Tue Sep 24 02:43:48 2024"
+[dumpfile_size] 106346874
+[savefile] "/home/dungxnef/SHA_256/sha256_test/tb/wave.gtkw"
+[timestart] 58106
 [size] 1895 1040
 [pos] 54970 843
-*-4.800000 2148 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-4.800000 58216 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.top.
 [treeopen] TOP.top.dut.
 [treeopen] TOP.top.dut.core.
 [treeopen] TOP.top.dut.core.hash.
-[sst_width] 276
+[sst_width] 297
 [signals_width] 253
 [sst_expanded] 1
 [sst_vpaned_height] 315

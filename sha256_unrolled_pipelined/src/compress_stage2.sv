@@ -48,4 +48,7 @@ module compress_stage2(
     
     assign e_new = t1 + p5;
 
+
+
+
 endmodule

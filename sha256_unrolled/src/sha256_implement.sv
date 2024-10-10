@@ -1,3 +1,4 @@
+/* verilator lint_off UNUSED */
 module sha256_implement(
 	input logic clk,rst,stop,ready,
 	input logic [7:0] data_in,
@@ -31,6 +32,14 @@ sha256 core(
 	.rdy_o(rdy_o),
 	.hash_val(hash_val)
 );
+
+logic [255:0] hash_val_disp;
+
+always_latch begin
+        if (rdy_o) begin
+            hash_val_disp = hash_val;
+        end
+end
 
  always@(posedge clk) begin
  	if(!rst) begin

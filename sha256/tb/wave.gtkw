@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Wed Aug 28 13:14:11 2024
+[*] Sun Sep 29 20:46:27 2024
 [*]
-[dumpfile] "/home/dungxnef/lab0/sha256/tb/wave.fst"
-[dumpfile_mtime] "Wed Aug 28 13:13:25 2024"
+[dumpfile] "/home/dungxnef/SHA_256/sha256/tb/wave.fst"
+[dumpfile_mtime] "Sun Sep 29 20:37:55 2024"
 [dumpfile_size] 16348
-[savefile] "/home/dungxnef/lab0/sha256/tb/wave.gtkw"
-[timestart] 1103
+[savefile] "/home/dungxnef/SHA_256/sha256/tb/wave.gtkw"
+[timestart] 532
 [size] 1895 1043
-[pos] 58204 718
-*-6.000000 1349 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] 58177 543
+*-6.000000 760 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.top.
 [treeopen] TOP.top.dut.

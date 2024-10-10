@@ -62,7 +62,7 @@ always @(posedge clk) begin
 		p4_cap <= p4;
 		p5_cap <= p5;
 end
-    
+
 
 compress_stage2 compress2(
 	.a_dash(a_cap),
@@ -84,6 +84,10 @@ compress_stage2 compress2(
 	.h_new(h_new)
 );
 
+// logic sel_1clk;
+// always @(posedge clk) begin
+// 	sel_1clk <= sel;
+// end
 
 always @(posedge clk) begin
 	if(!rst) begin
@@ -144,6 +148,16 @@ always @(posedge clk) begin
 	    h7_out <= h7_out;
 	end
 end
+
+
+// assign h0_out = h0 + a;
+// assign h1_out = h1 + b;
+// assign h2_out = h2 + c;
+// assign h3_out = h3 + d;
+// assign h4_out = h4 + e;
+// assign h5_out = h5 + f;
+// assign h6_out = h6 + g;
+// assign h7_out = h7 + h;
 
 assign hash_val = {h0_out, h1_out, h2_out, h3_out, h4_out, h5_out, h6_out, h7_out};
 
