@@ -10,3 +10,5 @@ sha256_unrolled/tb/obj_dir/Vtop__verFiles.dat
 sha256_unrolled_appli/tb/wave.fst
 sha256_unrolled_appli/tb/obj_dir/Vtop__verFiles.dat
 sha256_unrolled_appli/tb/obj_dir/Vtop__verFiles.dat
+
+Driver C++ test bench/a.out
