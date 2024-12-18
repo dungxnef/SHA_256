@@ -12,3 +12,5 @@ sha256_unrolled_appli/tb/obj_dir/Vtop__verFiles.dat
 sha256_unrolled_appli/tb/obj_dir/Vtop__verFiles.dat
 
 Driver_C++_testbench/a.out
+Driver_C++_testbench/tb.cppcpp
+Driver_C++_testbench/tb_long_short.cpp
