@@ -1,15 +1,15 @@
 # Specific files and folders to ignore
 sha256/tb/wave.fst
-sha256/tb/obj_dir/Vtop__verFiles.dat
-sha256/tb/obj_dir/Vtop__verFiles.dat
+sha256/tb/obj_dir/
+
 
 sha256_unrolled/tb/wave.fst
-sha256_unrolled/tb/obj_dir/Vtop__verFiles.dat
-sha256_unrolled/tb/obj_dir/Vtop__verFiles.dat
+sha256_unrolled/tb/obj_dir/
+
 
 sha256_unrolled_appli/tb/wave.fst
-sha256_unrolled_appli/tb/obj_dir/Vtop__verFiles.dat
-sha256_unrolled_appli/tb/obj_dir/Vtop__verFiles.dat
+sha256_unrolled_appli/tb/obj_dir/
+
 
 Driver_C++_testbench/a.out
 Driver_C++_testbench/tb.cpp
