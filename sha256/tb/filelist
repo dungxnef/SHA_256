@@ -1,0 +1,10 @@
+../src/s0.sv
+../src/S0.sv
+../src/s1.sv
+../src/S1.sv
+../src/w_calc.sv
+../src/compress.sv
+../src/hash_out.sv
+../src/padd.sv
+../src/sha256.sv
+../src/sha256_implement.sv

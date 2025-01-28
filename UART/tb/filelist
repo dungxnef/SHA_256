@@ -1,0 +1,6 @@
+../src/baud_rate_generator.sv
+../src/debounce_explicit.sv
+../src/fifo.sv
+../src/uart_core.sv
+../src/uart_receiver.sv
+../src/uart_transmitter.sv
