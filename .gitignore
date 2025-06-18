@@ -1,16 +1,16 @@
 # Specific files and folders to ignore
-sha256/tb/wave.fst
-sha256/tb/.gtkw
+sha256/tb/*.fst
+sha256/tb/*.gtkw
 sha256/tb/obj_dir/*
 
 
-sha256_unrolled/tb/wave.fst
-sha256_unrolled/tb/wave.gtkw
+sha256_unrolled/tb/*.fst
+sha256_unrolled/tb/*.gtkw
 sha256_unrolled/tb/obj_dir/*
 
 
-sha256_unrolled_appli/tb/wave.fst
-sha256_unrolled_appli/tb/wave.gtkw
+sha256_unrolled_appli/tb/*.fst
+sha256_unrolled_appli/tb/*.gtkw
 sha256_unrolled_appli/tb/obj_dir/*
 
 
