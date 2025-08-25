@@ -1,7 +1,3 @@
-Driver_C++_testbench/a.out
-Driver_C++_testbench/tb.cpp
-Driver_C++_testbench/tb_long_short.cpp
-
 *.bak
 *.fst
 *.gtkw
