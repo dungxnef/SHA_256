@@ -181,10 +181,10 @@ std::vector<std::tuple<std::string, std::string, std::string>> read_input_file(c
 int main() {
     // The name of the input file containing test cases
     std::string filename = "SHA256Monte.txt";
-    
+
     // Read the test cases from the input file
     auto test_cases = read_input_file(filename);
-    
+
     if (test_cases.empty()) {
         std::cerr << "No test cases found in the input file." << std::endl;
         return 1;
@@ -193,14 +193,22 @@ int main() {
     std::string initial_seed = "6d1e72ad03ddeb5de891e572e2396f8da015d899ef0e79503152d6010a3fe691"; // Initial seed
     bool overall_success = true;
     int correct_count = 0;
-    int target_count = 2; // Set to a specific count (e.g., 1) or -1 to print all counts
-    int print_iterations = 7; // Number of iterations to print
+
+    // Prompt the user for the target count
+    int target_count;
+    std::cout << "Enter the target count (-1 to print all counts): ";
+    std::cin >> target_count;
+
+    // Prompt the user for the number of iterations to print
+    int print_iterations;
+    std::cout << "Enter the number of iterations to print: ";
+    std::cin >> print_iterations;
 
     for (size_t count = 0; count < test_cases.size() / 6; ++count) {
         if (target_count != -1 && count != target_count) {
             continue;
         }
-        
+
         std::string seed = (count == 0) ? initial_seed : std::get<2>(test_cases[count * 6 - 1]);
         std::vector<std::string> previous_MDi;
         bool count_success = true;
