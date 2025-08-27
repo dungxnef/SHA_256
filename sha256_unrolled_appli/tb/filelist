@@ -1,0 +1,13 @@
+../src/s0.sv
+../src/S0.sv
+../src/s1.sv
+../src/S1.sv
+../src/w_calc.sv
+../src/compress_stage1.sv
+../src/compress_stage2.sv
+../src/hash_out.sv
+../src/padd.sv
+../src/sha256.sv
+../src/sha256_implement.sv
+../src/hash_detect_stop.sv
+../src/input_ctrl.sv

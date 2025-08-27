@@ -1,0 +1,4 @@
+*.bak
+*.fst
+*.gtkw
+**/obj_dir/**
