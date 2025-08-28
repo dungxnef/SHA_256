@@ -16,6 +16,11 @@
 - `tb/`      – Testbench files
 ### Usage
 After cloning the repository, you can navigate to the `tb/` directory of each implementation and use the following `make` commands:
+####  Prerequisites  
+Before running simulations or viewing waveforms, make sure the following tools are installed on your system:
+- **Verilator** – for compiling and simulating SystemVerilog testbenches  
+- **GTKWave** – for viewing waveform output (`.vcd` files)
+
 ```bash
 cd tb/
 make build   # Compile the testbench and source files
